@@ -1,0 +1,14 @@
+1. ttttttttttttttttttttt
+A. 3
+B. 2
+C. 4
+D. 1
+Answer: D
+---
+2. fffffffffffffffff
+A. 8
+B. 9
+C. 5
+D. 4
+Answer: B
+---
