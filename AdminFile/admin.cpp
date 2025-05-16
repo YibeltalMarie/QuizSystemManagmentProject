@@ -26,13 +26,6 @@ Admin::Admin()
 // Create default admin credentials if file doesn't exist
 void Admin::createDefaultAdmin()
 {
-    // std::ifstream file("your_file.txt");
-    // if (file.peek() == std::ifstream::traits_type::eof()) {
-    //     std::cout << "File is empty.\n";
-    // } else {
-    //     std::cout << "File is not empty.\n";
-    // }
-
     ifstream infile(adminFile);
     if (infile.eof())
     {
@@ -42,21 +35,6 @@ void Admin::createDefaultAdmin()
     }
     infile.close();
 }
-
-// Load stored credentials from file
-// bool Admin::loadCredentials(string &storedUsername, string &storedPassword)
-// {
-//     ifstream infile(adminFile);
-//     if (infile)
-//     {
-//         // getline(infile, storedUsername);
-//         // getline(infile, storedPassword);
-//         infile >> storedUsername >> storedPassword;
-//         infile.close();
-//         return true;
-//     }
-//     return false;
-// }
 
 bool Admin::loadCredentials(string &storedUsername, string &storedPassword)
 {
