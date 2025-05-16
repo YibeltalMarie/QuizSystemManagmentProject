@@ -91,12 +91,12 @@ bool Admin::login()
     cout << "Password: ";
     cin >> inputPassword;
 
-    if (!(isValidPassword(password) && isValidUsername(inputUsername)))
-    {
-        cout << "Invalid userName or password!\n";
-        cout << "Password must be at least 6 characters and include letters and digits.\n";
-        return false;
-    }
+    // if (!isValidPassword(password))
+    // {
+    //     cout << "Invalid userName or password!\n";
+    //     cout << "Password must be at least 6 characters and include letters and digits.\n";
+    //     return false;
+    // }
 
     if (loadCredentials(storedUsername, storedPassword))
     {
