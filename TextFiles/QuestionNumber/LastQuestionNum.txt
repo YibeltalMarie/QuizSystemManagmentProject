@@ -1,3 +1,2 @@
 maths:4
 physics:3
-english:2
