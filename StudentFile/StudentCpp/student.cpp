@@ -9,63 +9,56 @@ using namespace std;
 
 void Student::registerStudent()
 {
-  cout << "Enter username: ";
-  cin >> username;
-  if (!isValidUsername(username))
-  {
-    cout << "Invalid username. Use only letters and digits, min 4 characters.\n";
-    return;
-  }
-  // do
-  // {
-  //   cout << "Enter username: ";
-  //   cin >> username;
-  //   if (!isValidUsername(username))
-  //   {
-  //     cout << "Invalid email format. Try again.\n";
-  //   }
-  // } while (!isValidUsername(email));
-
-  cout << "Enter password: ";
-  cin >> password;
-  if (!(isValidPassword(password) && isValidUsername(username)))
-  {
-    cout << "Invalid password.\n";
-    cout << "Password must be at least 6 characters and include letters and digits.\n";
-    return;
-  }
-
-  // do
-  // {
-  //   cout << "Enter password: ";
-  //   cin >> password;
-  //   if (!(isValidUsername(username) && isValidPassword(password)))
-  //   {
-  //     cout << "Invalid password. Try again.\n";
-  //     cout << "Password must be at least 6 characters and include letters and digits.\n";
-  //   }
-  // } while (!(isValidUsername(username) && (isValidPassword(password))));
-
-  cout << "Enter email: ";
-  cin >> email;
-  if (!isValidEmail(email))
-  {
-    cout << "Invalid email format. Try again.\n";
-    exit(1);
-  }
-  // do
-  // {
-  //   cout << "Enter email: ";
-  //   cin >> email;
-  //   if (!isValidEmail(email))
-  //   {
-  //     cout << "Invalid email format. Try again.\n";
-  //   }
-  // } while (!isValidEmail(email));
-
+  string student, student_password, email;
   string FolderPath = "StudentFile/StudentCpp/";
   string originalFile = Folder;
   string tempFile = FolderPath + "temp.txt";
+
+  bool is_true = false;
+  do
+  {
+    is_true = false;
+    cout << "Enter username: ";
+    cin >> username;
+    ifstream file(originalFile);
+    while (file >> student >> email >> student_password)
+    {
+      if (student == username)
+      {
+        cout << "Username already exists. Try again!" << endl;
+        is_true = true;
+      }
+    }
+    if (!isValidUsername(username))
+    {
+      cout << "Invalid username. Try again.\n";
+      cout << "username must be at least 4.\n";
+      is_true = true;
+    }
+  } while (is_true);
+
+  do
+  {
+    cout << "Enter password: ";
+    cin >> password;
+    if (!isValidPassword(password))
+    {
+      cout << "Invalid password. Try again.\n";
+      cout << "Password must be at least 6 characters and include letters and digits.\n";
+    }
+  } while (!isValidPassword(password));
+
+  do
+  {
+    is_true = false;
+    cout << "Enter email: ";
+    cin >> email;
+    if (!isValidEmail(email))
+    {
+      cout << "Invalid email format. Try again.\n";
+      is_true = true;
+    }
+  } while (is_true);
 
   // Step 1: Check if file ends with a newline
   ifstream inFile(originalFile, ios::binary);
@@ -108,11 +101,14 @@ void Student::registerStudent()
 
 bool Student::login()
 {
+  std::string RegisteredStudentsPath = "StudentFile/StudentCpp/students.txt";
+  std::string student, student_password;
   string login_user_path = "TextFiles/Login/current_user.txt";
   ifstream infile;
   infile.open(Folder, ios::in); // file with registered students
   cout << "Enter userName: ";
   cin >> username;
+
   if (!isValidUsername(username))
   {
     cout << "Invalid username. Use only letters and digits, min 4 characters.\n";

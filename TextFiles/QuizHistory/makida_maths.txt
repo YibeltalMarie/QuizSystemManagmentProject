@@ -1,0 +1,20 @@
+maths: 1/2
+
+1. aaaaaaaaaaaaaaaaaaaaaaaa
+A. 5
+B. 4
+C. 3
+D. 2
+Your Answer: C
+Correct Answer: C
+Correct
+
+2. iiiiiiiiiiiiiiiiii
+A. 99
+B. 4
+C. 2
+D. 1
+Your Answer: C
+Correct Answer: B
+Wrong
+
